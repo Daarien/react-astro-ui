@@ -1,48 +1,95 @@
 {
-   "name": "react-astro-ui",
-   "version": "1.0.0",
-   "description": "React Astroturf UI Library",
-   "main": "index.tsx",
-   "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "webpack-dev-server --mode development --open",
-      "build": "rm ./dist/* && tsc",
-      "prepublishOnly": "yarn build"
-   },
-   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/Daarien/react-astro-ui.git"
-   },
-   "files": [
-      "src",
-      "dist"
-   ],
-   "keywords": [
-      "react",
-      "astroturf",
-      "ui"
-   ],
-   "author": "Daarien",
-   "license": "ISC",
-   "dependencies": {
-      "astroturf": "^0.10.4",
-      "react": "^16.13.1",
-      "react-dom": "^16.13.1"
-   },
-   "devDependencies": {
-      "@types/node": "^14.0.13",
-      "@types/react": "^16.9.38",
-      "@types/react-dom": "^16.9.8",
-      "@typescript-eslint/eslint-plugin": "^3.4.0",
-      "@typescript-eslint/parser": "^3.4.0",
-      "eslint": "^7.3.0",
-      "eslint-plugin-react": "^7.20.0",
-      "html-webpack-plugin": "^4.3.0",
-      "polished": "^3.6.5",
-      "ts-loader": "^7.0.5",
-      "typescript": "^3.9.5",
-      "webpack": "^4.43.0",
-      "webpack-cli": "^3.3.12",
-      "webpack-dev-server": "^3.11.0"
-   }
+  "name": "react-astro-ui",
+  "version": "1.3.3",
+  "description": "React Astroturf UI Library",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=12.18.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development --open",
+    "clean": "rimraf dist/ && rimraf es/",
+    "tsc": "tsc -p tsconfig.publish.json",
+    "build:es5": "NODE_ENV=production node_modules/.bin/webpack-cli",
+    "build:es": "BABEL_ENV=ES babel src --out-dir es --copy-files",
+    "build": "yarn run clean && yarn run build:es && yarn run build:es5 && yarn run copy",
+    "copy": "copyfiles -u 1 src/**/*.d.ts dist",
+    "prepublishOnly": "yarn build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daarien/react-astro-ui.git"
+  },
+  "files": [
+    "src",
+    "dist",
+    "es"
+  ],
+  "keywords": [
+    "react",
+    "astroturf",
+    "ui"
+  ],
+  "author": "Daarien",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16"
+  },
+  "dependencies": {
+    "astroturf": "^0.10.4",
+    "clsx": "^1.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.10.4",
+    "@babel/core": "7.10.4",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "7.10.4",
+    "@babel/plugin-proposal-optional-chaining": "7.10.4",
+    "@babel/preset-env": "7.10.4",
+    "@babel/preset-react": "7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@storybook/addon-actions": "5.3.19",
+    "@storybook/addon-backgrounds": "5.3.19",
+    "@storybook/addon-info": "5.3.19",
+    "@storybook/addon-knobs": "5.3.19",
+    "@storybook/addon-storysource": "5.3.19",
+    "@storybook/addon-viewport": "5.3.19",
+    "@storybook/addons": "5.3.19",
+    "@storybook/react": "5.3.19",
+    "@testing-library/react": "10.4.4",
+    "@testing-library/react-hooks": "3.3.0",
+    "@types/node": "^14.0.19",
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^3.6.0",
+    "@typescript-eslint/parser": "^3.6.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-require-context-hook": "^1.0.0",
+    "copyfiles": "^2.3.0",
+    "css-loader": "^3.6.0",
+    "cssnano": "^4.1.10",
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-react": "^7.20.3",
+    "file-loader": "^6.0.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "polished": "^3.6.5",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.0.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "style-loader": "^1.2.1",
+    "svg-sprite-loader": "^5.0.0",
+    "terser-webpack-plugin": "^3.0.6",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.6",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
 }

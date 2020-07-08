@@ -1,0 +1,66 @@
+/*
+ * Copyright 2019 dialog LLC <info@dlg.im>
+ */
+
+:root {
+  /* Fonts */
+  --font-apple: -apple-system, 'BlinkMacSystemFont';
+  --font-fallback: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-family: var(--font-apple), var(--font-fallback), var(--font-emoji);
+  --code-font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code',
+    'Fira Mono', 'Droid Sans Mono', 'Consolas', 'Roboto Mono', 'Source Code Pro',
+    monospace;
+
+  /* Sizes  */
+  --font-size-small: 13px;
+  --font-size: 16px;
+  --font-size-large: 18px;
+
+  /* Line Height */
+  --text-line-height: 22px;
+  --text-line-height-small: 18px;
+  --text-line-height-large: 26px;
+
+  /* Spacing */
+  --space-small: 12px;
+  --space: 16px;
+  --space-large: 22px;
+
+  /* Borders */
+  --border-radius-small: 2px;
+  --border-radius: 3px;
+  --border-radius-large: 4px;
+  --border-color: #f3efeb;
+  --border-color-dark: #c0bebc;
+
+  /* Overlays */
+  --z-index-base: 100;
+  --z-index-content: 500;
+  --z-index-overlay: 1000;
+
+  /* Colors */
+  --color-default: #454545;
+  --color-primary: #847bac;
+  --color-info: #1887fe;
+  --color-success: #3bbf51;
+  --color-warning: #ffae00;
+  --color-danger: #ff4f45;
+
+  --text-color: #212121;
+  --text-color-light: color-mod(var(--text-color) lightness(55%) alpha(90%));
+
+  --color-heading: #000;
+  --color-link: var(--color-primary);
+
+  --color-dark-text: #fff;
+  --color-dark-text-light: #000;
+  --color-dark-heading: #fff;
+  --color-dark-link: var(--color-info);
+
+  --color-base-white: #fff;
+
+  /* Transition */
+  --transition-duration: 125ms;
+}
